@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Image to Base64</title>
+</head>
+<body>
+    <input type="file" id="upload" accept="image/*">
+    <p id="output"></p>
+    <script>
+        document.getElementById('upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function() {
+                const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+                document.getElementById('output').textContent = base64String;
+                console.log(base64String); // Log the Base64 string to the console
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
