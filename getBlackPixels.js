@@ -52,6 +52,7 @@ window.onload = function() {
                 console.log(`The pixel at (${x}, ${y}) is not black.`);
             }
         });
+        document.getElementById("numPixels").innerHTML = blackPixels.length;
 
         console.log(blackPixels)
     };
